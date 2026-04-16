@@ -12,7 +12,7 @@ body {
   padding: 1.5rem;
   background-color: #333e5b; 
   font-family: 'DM Sans', sans-serif;
-  color: #1c1917; /* Deep stone gray instead of pure black */
+  color: #1c1917;
 }
 
 /* ── Card ── */
@@ -20,11 +20,10 @@ article.card {
   position: relative;
   background: #f3f7bd;
   border: 1px solid #e7e5e4;
-  border-radius: 12px; /* Slightly sharper, less bubbly corners */
+  border-radius: 12px;
   padding: 1.75rem;
   width: 100%;
   max-width: 480px;
-  /* Realistic, soft physical shadow */
   box-shadow: 
     0 4px 6px -1px rgba(0, 0, 0, 0.05),
     0 2px 4px -2px rgba(0, 0, 0, 0.05);
@@ -71,7 +70,7 @@ article.card.completed {
   transition: all 0.2s ease;
 }
 
-/* Using a custom Terracotta/Burnt Orange for the accent */
+
 #todo-complete:checked {
   background: #ea580c;
   border-color: #ea580c;
@@ -128,11 +127,11 @@ article.card.completed h2[data-testid="test-todo-title"] {
   font-weight: 600;
   letter-spacing: 0.02em;
   padding: 0.3rem 0.7rem;
-  border-radius: 6px; /* Squarer badges look more professional */
+  border-radius: 4px;
   line-height: 1;
 }
 
-/* Solid, pastel-like earthy colors instead of neons */
+
 .priority-high {
   background: #fee2e2;
   color: #991b1b;
