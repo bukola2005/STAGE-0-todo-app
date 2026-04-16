@@ -46,11 +46,11 @@
       card.classList.toggle("completed", done);
 
       if (done) {
-        statusBadge.textContent  = "✅ Done";
+        statusBadge.textContent  = "Done";
         statusBadge.className    = "badge status-done";
         statusBadge.setAttribute("aria-label", "Status: Done");
       } else {
-        statusBadge.textContent  = "⚡ In Progress";
+        statusBadge.textContent  = "In Progress";
         statusBadge.className    = "badge status-in-progress";
         statusBadge.setAttribute("aria-label", "Status: In Progress");
       }
