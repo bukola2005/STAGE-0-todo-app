@@ -1,0 +1,30 @@
+# HNG Stage 0 - Interactive Todo Card
+
+A clean, responsive, and fully accessible Todo/Task Card component built for the HNG i14 Internship (Stage 0).
+
+🔗 **[Live Demo on Vercel](https://stage-0-todo-app.vercel.app/)**
+
+## 📌 Project Overview
+This project is a single, stateful task card designed to mimic modern project management tools (like Jira or Linear). It demonstrates a strong understanding of semantic HTML, responsive CSS design, and basic DOM manipulation using vanilla JavaScript.
+
+## ✨ Features & Requirements Met
+- **Semantic HTML5:** Uses proper tags (`<article>`, `<header>`, `<time>`) instead of generic divs.
+- **Accessibility (a11y) First:**
+  - Fully keyboard navigable (`Tab` flows logically through interactive elements).
+  - Screen-reader friendly with `aria-label`, `aria-live="polite"`, and `role="list"`.
+  - Custom-styled, accessible checkbox.
+- **Responsive Design:** Mobile-first layout that elegantly constrains to a maximum width on desktop and tablet viewports.
+- **Dynamic State Visualization:** Toggling the checkbox instantly updates the card's visual state (strike-through text, badge updates) via JavaScript.
+- **Automated Testing Ready:** All required `data-testid` attributes are perfectly mapped for automated grading.
+
+## 🛠️ Tech Stack
+- **HTML5:** Semantic structure and accessibility markers.
+- **CSS3:** Custom variables (Dark Mode theme), flexbox, media queries, and modern UI styling.
+- **Vanilla JavaScript (ES6):** Event listeners and DOM manipulation for state toggling.
+
+## 🚀 Running Locally
+To view this project locally, simply clone the repository and open the `index.html` file in your browser. No build steps or package managers are required.
+
+```bash
+git clone https://github.com/bukola2005/STAGE-0-todo-app
+# Open index.html in your preferred browser
