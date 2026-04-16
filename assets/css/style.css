@@ -1,0 +1,300 @@
+*, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+      background-color: #0d0f14;
+      background-image:
+        radial-gradient(ellipse 60% 40% at 15% 20%, rgba(100, 80, 200, 0.13) 0%, transparent 60%),
+        radial-gradient(ellipse 50% 50% at 85% 80%, rgba(255, 180, 50, 0.08) 0%, transparent 60%);
+      font-family: 'DM Sans', sans-serif;
+    }
+
+    /* ── Card ── */
+    article.card {
+      position: relative;
+      background: rgba(20, 22, 32, 0.95);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 20px;
+      padding: 1.75rem;
+      width: 100%;
+      max-width: 480px;
+      box-shadow:
+        0 0 0 1px rgba(255,255,255,0.03),
+        0 8px 32px rgba(0,0,0,0.55),
+        0 2px 8px rgba(0,0,0,0.3);
+      transition: border-color 0.3s, box-shadow 0.3s, opacity 0.3s;
+    }
+
+    article.card:hover {
+      border-color: rgba(255,255,255,0.13);
+      box-shadow:
+        0 0 0 1px rgba(255,255,255,0.05),
+        0 14px 48px rgba(0,0,0,0.65),
+        0 4px 16px rgba(0,0,0,0.4);
+    }
+
+    article.card.completed {
+      opacity: 0.65;
+    }
+
+    /* ── Header row ── */
+    .card-header {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.85rem;
+      margin-bottom: 1rem;
+    }
+
+    /* ── Checkbox ── */
+    .checkbox-wrap {
+      flex-shrink: 0;
+      margin-top: 4px;
+    }
+
+    #todo-complete {
+      appearance: none;
+      -webkit-appearance: none;
+      width: 22px;
+      height: 22px;
+      border: 2px solid rgba(255,255,255,0.22);
+      border-radius: 7px;
+      cursor: pointer;
+      position: relative;
+      background: transparent;
+      display: block;
+      transition: background 0.2s, border-color 0.2s;
+    }
+
+    #todo-complete:checked {
+      background: #a78bfa;
+      border-color: #a78bfa;
+    }
+
+    #todo-complete:checked::after {
+      content: '';
+      position: absolute;
+      left: 5px;
+      top: 2px;
+      width: 8px;
+      height: 12px;
+      border: 2.5px solid #fff;
+      border-top: none;
+      border-left: none;
+      transform: rotate(45deg);
+    }
+
+    #todo-complete:focus-visible {
+      outline: 2px solid #a78bfa;
+      outline-offset: 3px;
+      box-shadow: 0 0 0 4px rgba(167,139,250,0.2);
+    }
+
+    /* ── Title ── */
+    h2[data-testid="test-todo-title"] {
+      font-family: 'Syne', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #f0f0f8;
+      line-height: 1.4;
+      letter-spacing: -0.01em;
+      transition: color 0.25s, text-decoration 0.25s;
+    }
+
+    article.card.completed h2[data-testid="test-todo-title"] {
+      text-decoration: line-through;
+      color: rgba(240,240,248,0.38);
+    }
+
+    /* ── Badges ── */
+    .badges {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      margin-bottom: 1rem;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      padding: 0.28rem 0.65rem;
+      border-radius: 999px;
+      line-height: 1;
+    }
+
+    .priority-high {
+      background: rgba(255, 107, 107, 0.12);
+      color: #ff6b6b;
+      border: 1px solid rgba(255,107,107,0.25);
+    }
+
+    .status-pending {
+      background: rgba(250, 204, 21, 0.1);
+      color: #facc15;
+      border: 1px solid rgba(250,204,21,0.22);
+    }
+
+    .status-in-progress {
+      background: rgba(96, 165, 250, 0.1);
+      color: #60a5fa;
+      border: 1px solid rgba(96,165,250,0.22);
+    }
+
+    .status-done {
+      background: rgba(52, 211, 153, 0.1);
+      color: #34d399;
+      border: 1px solid rgba(52,211,153,0.22);
+    }
+
+    /* ── Description ── */
+    p[data-testid="test-todo-description"] {
+      font-size: 0.875rem;
+      color: rgba(200,200,220,0.68);
+      line-height: 1.65;
+      margin-bottom: 1.25rem;
+    }
+
+    /* ── Date row ── */
+    .date-row {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-bottom: 1.25rem;
+      padding: 0.7rem 1rem;
+      background: rgba(255,255,255,0.03);
+      border-radius: 12px;
+      border: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .date-item {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.8rem;
+    }
+
+    .date-icon { font-size: 0.9rem; }
+
+    time[data-testid="test-todo-due-date"] {
+      color: rgba(200,200,220,0.75);
+      font-weight: 500;
+    }
+
+    time[data-testid="test-todo-time-remaining"] {
+      font-weight: 600;
+      color: #a78bfa;
+      background: rgba(167,139,250,0.1);
+      padding: 0.22rem 0.55rem;
+      border-radius: 6px;
+      transition: color 0.3s, background 0.3s;
+    }
+
+    time[data-testid="test-todo-time-remaining"].overdue {
+      color: #ff6b6b;
+      background: rgba(255,107,107,0.1);
+    }
+
+    /* ── Tags ── */
+    ul[data-testid="test-todo-tags"] {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      list-style: none;
+      margin-bottom: 1.25rem;
+    }
+
+    .tag-chip {
+      font-size: 0.74rem;
+      font-weight: 500;
+      color: rgba(200,200,220,0.78);
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 999px;
+      padding: 0.25rem 0.7rem;
+      letter-spacing: 0.02em;
+    }
+
+    /* ── Action buttons ── */
+    .card-actions {
+      display: flex;
+      gap: 0.5rem;
+      justify-content: flex-end;
+      padding-top: 0.85rem;
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .action-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.8rem;
+      font-weight: 600;
+      font-family: 'DM Sans', sans-serif;
+      padding: 0.45rem 0.9rem;
+      border-radius: 8px;
+      border: 1px solid transparent;
+      cursor: pointer;
+      transition: background 0.2s, border-color 0.2s, transform 0.15s;
+      letter-spacing: 0.02em;
+    }
+
+    .action-btn:active { transform: scale(0.95); }
+
+    .action-btn:focus-visible {
+      outline: 2px solid #a78bfa;
+      outline-offset: 2px;
+    }
+
+    .edit-btn {
+      background: rgba(167,139,250,0.1);
+      color: #a78bfa;
+      border-color: rgba(167,139,250,0.22);
+    }
+
+    .edit-btn:hover {
+      background: rgba(167,139,250,0.2);
+      border-color: rgba(167,139,250,0.4);
+    }
+
+    .delete-btn {
+      background: rgba(255,107,107,0.08);
+      color: #ff6b6b;
+      border-color: rgba(255,107,107,0.2);
+    }
+
+    .delete-btn:hover {
+      background: rgba(255,107,107,0.18);
+      border-color: rgba(255,107,107,0.35);
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 480px) {
+      article.card {
+        border-radius: 16px;
+        padding: 1.25rem;
+      }
+
+      h2[data-testid="test-todo-title"] {
+        font-size: 1rem;
+      }
+
+      .date-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+      }
+    }
